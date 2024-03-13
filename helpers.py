@@ -83,7 +83,7 @@ def backprojection(image, sinogram, alpha=2, phi_range=90, num_detectors=180, nu
             yd = int(radius * np.sin(curr_alpha + np.pi - (phi_rad / 2) + j * phi_rad/(num_detectors-1))) + y_offset
             reconstruction = draw_line(line_nd([xe, ye], [xd, yd]), reconstruction, i, j, pixel_counter, sinogram)
 
-    for y, x in np.ndindex(reconstruction.shape):
+    for x, y in np.ndindex(reconstruction.shape):
         reconstruction[x][y] = reconstruction[x][y] / pixel_counter[x][y]
     return reconstruction
 
