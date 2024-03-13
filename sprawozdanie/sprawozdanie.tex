@@ -64,7 +64,6 @@ def radon_transform(image, alpha=2, phi_range=90, num_detectors=180, num_iterati
             yd = int(radius * np.sin(curr_alpha + np.pi - (phi_rad / 2) + j * phi_rad/(num_detectors-1))) + y_offset
             sinogram[i][j] = avg_brightness(line_nd([xe, ye], [xd, yd]), image)
     return sinogram
-
   \end{lstlisting}
 
   \begin{lstlisting}[language=Python, caption=Average brightness, basicstyle=\tiny]
@@ -76,7 +75,7 @@ def avg_brightness(line, image):
         if (x < 0 or x >= height) or (y < 0 or y >= width):
             continue
         sum += image[x,y]
-    return int(sum / 255)    
+    return int(sum / len(line))    
   \end{lstlisting}
   
   \subsection{Uśrednianie wyniku}

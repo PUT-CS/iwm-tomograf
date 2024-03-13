@@ -28,7 +28,7 @@ def avg_brightness(line, image):
         if (x < 0 or x >= height) or (y < 0 or y >= width):
             continue
         sum += image[x,y]
-    return int(sum / 255)
+    return int(sum / len(line))
 
 
 def radon_transform(image, alpha=2, phi_range=90, num_detectors=180, num_iterations=90):
