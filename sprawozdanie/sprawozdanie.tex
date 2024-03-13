@@ -68,11 +68,11 @@ def radon_transform(image, alpha=2, phi_range=90, num_detectors=180, num_iterati
 
   \begin{lstlisting}[language=Python, caption=Average brightness, basicstyle=\tiny]
 def avg_brightness(line, image):
-    height, width = image.shape
+    width, height = image.shape
     sum = 0
     line = list(zip(line[0], line[1]))
-    for [y, x] in line:
-        if (x < 0 or x >= height) or (y < 0 or y >= width):
+    for [x, y] in line:
+        if (x < 0 or x >= width) or (y < 0 or y >= height):
             continue
         sum += image[x,y]
     return int(sum / len(line))    

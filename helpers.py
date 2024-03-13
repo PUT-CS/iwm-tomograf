@@ -21,11 +21,11 @@ def load_image(src):
 
 
 def avg_brightness(line, image):
-    height, width = image.shape
+E    width, height = image.shape
     sum = 0
     line = list(zip(line[0], line[1]))
-    for [y, x] in line:
-        if (x < 0 or x >= height) or (y < 0 or y >= width):
+    for [x, y] in line:
+        if (x < 0 or x >= width) or (y < 0 or y >= height):
             continue
         sum += image[x,y]
     return int(sum / len(line))
